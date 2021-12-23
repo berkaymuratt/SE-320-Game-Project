@@ -45,7 +45,7 @@ public class Gun : MonoBehaviour
 
                 if (isHit)
                 {
-                    Debug.Log(hit.transform.name);
+                    Debug.Log(hit.transform.gameObject.name);
                 }
             }
             else
