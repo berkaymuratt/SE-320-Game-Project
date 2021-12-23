@@ -9,17 +9,19 @@ public class Gun : MonoBehaviour
     private Animation m_Animation; 
     private AudioSource m_AudioSource;
 
+    public Camera fpsCam;
     public AudioClip shootingSound;
     public AudioClip outOfAmmoSound;
 
-    private int m_bulletCount;
+    public int m_bulletCount;
+    public float range = 100f;
     
+
     // Start is called before the first frame update
     void Start()
     {
         m_Animation = gameObject.GetComponent<Animation>();
         m_AudioSource = gameObject.GetComponent<AudioSource>();
-        m_bulletCount = 5;
     }
 
     // Update is called once per frame
@@ -37,6 +39,14 @@ public class Gun : MonoBehaviour
                 PlayShootingSound();
                 m_Animation.Play("gun-recoil");
                 m_bulletCount--;
+
+                RaycastHit hit;
+                bool isHit = Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range);
+
+                if (isHit)
+                {
+                    Debug.Log(hit.transform.name);
+                }
             }
             else
             {

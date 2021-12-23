@@ -394,7 +394,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40754b5bd25b39e449e91356f7f5ac02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fpsCam: {fileID: 0}
   shootingSound: {fileID: 8300000, guid: e196615aab553a14ab4e1aeb462c195c, type: 3}
+  outOfAmmoSound: {fileID: 8300000, guid: 80e397195ea2940b69ee7bdbded856a5, type: 3}
+  m_bulletCount: 5
+  range: 100
 --- !u!1 &3832703582600972130
 GameObject:
   m_ObjectHideFlags: 0
