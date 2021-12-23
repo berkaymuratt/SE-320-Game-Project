@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MyCharacterScript : MonoBehaviour
+public class Flashlight : MonoBehaviour
 {
 
     private Light m_Light;
