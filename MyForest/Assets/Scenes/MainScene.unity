@@ -202,6 +202,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1027735201}
     m_Modifications:
+    - target: {fileID: 19726569, guid: bceefb2a39f6db74d9bc9d006687b7f1, type: 3}
+      propertyPath: outOfAmmoSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 80e397195ea2940b69ee7bdbded856a5, type: 3}
     - target: {fileID: 3832703582600944448, guid: bceefb2a39f6db74d9bc9d006687b7f1, type: 3}
       propertyPath: m_RootOrder
       value: 0
