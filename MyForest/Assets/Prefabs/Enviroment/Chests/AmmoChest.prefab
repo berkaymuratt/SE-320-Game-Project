@@ -184,7 +184,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 36555942d3d64a2498b3ffde0ea97a13, type: 2}
+  - {fileID: 2100000, guid: c33264da235500d4f98e85f19f7dc63d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -230,7 +230,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7258247129904380782}
   m_Layer: 0
-  m_Name: Chest
+  m_Name: AmmoChest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
