@@ -395,8 +395,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fpsCam: {fileID: 0}
-  shootingSound: {fileID: 8300000, guid: e196615aab553a14ab4e1aeb462c195c, type: 3}
-  outOfAmmoSound: {fileID: 8300000, guid: 80e397195ea2940b69ee7bdbded856a5, type: 3}
+  shootingAudio: {fileID: 8300000, guid: e196615aab553a14ab4e1aeb462c195c, type: 3}
+  outOfAmmoAudio: {fileID: 8300000, guid: 80e397195ea2940b69ee7bdbded856a5, type: 3}
   m_bulletCount: 5
   range: 100
 --- !u!1 &3832703582600972130
@@ -808,7 +808,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &3832703582705633607
 MonoBehaviour:
   m_ObjectHideFlags: 0

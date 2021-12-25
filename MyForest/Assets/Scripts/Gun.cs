@@ -10,11 +10,13 @@ public class Gun : MonoBehaviour
     private AudioSource m_AudioSource;
 
     public Camera fpsCam;
-    public AudioClip shootingSound;
-    public AudioClip outOfAmmoSound;
+    public AudioClip shootingAudio;
+    public AudioClip outOfAmmoAudio;
 
     public int m_bulletCount;
     public float range = 100f;
+
+    private Enemy m_Enemy;
     
 
     // Start is called before the first frame update
@@ -27,7 +29,7 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        CheckEnemyRespawn();
     }
 
     public void Shoot()
@@ -45,7 +47,15 @@ public class Gun : MonoBehaviour
 
                 if (isHit)
                 {
-                    Debug.Log(hit.transform.gameObject.name);
+                    Transform other = hit.transform;
+                    
+                    Debug.Log(other.gameObject.name);
+
+                    if (other.gameObject.tag.Equals("EnemyCharacter"))
+                    {
+                        m_Enemy = other.GetComponent<Enemy>();
+                        m_Enemy.Disappear();
+                    }
                 }
             }
             else
@@ -54,16 +64,31 @@ public class Gun : MonoBehaviour
             }
         }
     }
+    
+    public void CheckEnemyRespawn()
+    {
+        if (m_Enemy != null)
+        {
+            if (!m_Enemy.gameObject.activeInHierarchy)
+            {
+                m_Enemy.UpdateRespawnTime();
+                if (m_Enemy.CheckRespawn())
+                {
+                    m_Enemy.Respawn();
+                }
+            }
+        }
+    }
 
     private void PlayShootingSound()
     {
-        m_AudioSource.clip = shootingSound;
+        m_AudioSource.clip = shootingAudio;
         m_AudioSource.Play();
     }
 
     private void PlayOutOfAmmoSound()
     {
-        m_AudioSource.clip = outOfAmmoSound;
+        m_AudioSource.clip = outOfAmmoAudio;
         m_AudioSource.Play();
     }
 }

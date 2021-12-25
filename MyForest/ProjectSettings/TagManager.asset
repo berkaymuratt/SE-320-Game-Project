@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Fire
   - IndoorWalkingArea
+  - EnemyCharacter
   layers:
   - Default
   - TransparentFX
