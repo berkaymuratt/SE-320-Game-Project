@@ -8,18 +8,13 @@ namespace UnityStandardAssets.Effects
         // a simple script to scale the size, speed and lifetime of a particle system
 
         public float multiplier = 1;
-
-
-        private void Start()
-        {
-            
-        }
-
+        
         
         //Added
         public void PlayAll()
         {
             var systems = GetComponentsInChildren<ParticleSystem>();
+            
             foreach (ParticleSystem system in systems)
             {
                 ParticleSystem.MainModule mainModule = system.main;

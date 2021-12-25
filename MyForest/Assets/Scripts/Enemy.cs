@@ -6,7 +6,7 @@ using UnityStandardAssets.Effects;
 public class Enemy : MonoBehaviour
 {
     private float respawnTime;
-    public ParticleSystemMultiplier explosion;
+    public Explosion explosion;
 
     void Start()
     {
@@ -38,7 +38,7 @@ public class Enemy : MonoBehaviour
 
     public void Disappear()
     {
-        explosion.PlayAll();
+        explosion.Play();
         gameObject.SetActive(false);
     }
 }
