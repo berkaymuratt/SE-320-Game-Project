@@ -40,6 +40,7 @@ public class Gun : MonoBehaviour
             if (m_bulletCount > 0)
             {
                 PlayShootingSound();
+                muzzleFlash.Play();
                 m_Animation.Play("gun-recoil");
                 m_bulletCount--;
 
