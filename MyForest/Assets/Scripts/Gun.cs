@@ -12,6 +12,7 @@ public class Gun : MonoBehaviour
     public Camera fpsCam;
     public AudioClip shootingAudio;
     public AudioClip outOfAmmoAudio;
+    public ParticleSystem muzzleFlash;
 
     public int m_bulletCount;
     public float range = 100f;
