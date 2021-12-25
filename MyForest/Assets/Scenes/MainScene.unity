@@ -1477,7 +1477,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: MedkitChest
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2209689020009139688, guid: 6215aa9ddbfa54d43bc443263461b821, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6215aa9ddbfa54d43bc443263461b821, type: 3}
 --- !u!1001 &525837020
 PrefabInstance:
@@ -1743,7 +1744,7 @@ GameObject:
   - component: {fileID: 606274436}
   - component: {fileID: 606274435}
   m_Layer: 5
-  m_Name: Text
+  m_Name: InteractionText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1801,7 +1802,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Press E to open chest
+  m_Text: 
 --- !u!222 &606274436
 CanvasRenderer:
   m_ObjectHideFlags: 0
