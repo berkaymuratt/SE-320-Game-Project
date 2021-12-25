@@ -11,11 +11,18 @@ public class Hero : MonoBehaviour
 
     private int m_MedkitCount;
     private int m_KeyCount;
+    
+    public AudioClip chestAudio;
+    public AudioClip[] collectAudios;
 
 
     public Text MedkitCountText;
     public Text AmmoCountText;
     public Text KeyCountText;
+    public Text InformationText;
+
+    public float infoTextTimer;
+    private float counter;
 
     // Update is called once per frame
     void Start()
@@ -33,6 +40,17 @@ public class Hero : MonoBehaviour
         {
             gun.Shoot();
             UpdateUI();
+        }
+
+        if (!InformationText.text.Equals(""))
+        {
+            counter += Time.deltaTime;
+        }
+
+        if (counter >= infoTextTimer)
+        {
+            InformationText.text = "";
+            counter = 0;
         }
     }
 
@@ -71,6 +89,7 @@ public class Hero : MonoBehaviour
     public void GetKey()
     {
         m_KeyCount++;
+        InformationText.text = (4-m_KeyCount) + " Key(s) Left ..";
     }
 
     public void UpdateUI()
@@ -78,5 +97,22 @@ public class Hero : MonoBehaviour
         MedkitCountText.text = m_MedkitCount.ToString();
         AmmoCountText.text = gun.m_bulletCount.ToString();
         KeyCountText.text = m_KeyCount.ToString();
+    }
+
+    public void PlayCollectAudio(int audioIndex)
+    {
+        AudioSource audioSource;
+
+        if (audioIndex == 1)
+        {
+            audioSource = gun.GetComponent<AudioSource>();
+        }
+        else
+        {
+            audioSource = gameObject.GetComponent<AudioSource>();
+        }
+        
+        audioSource.clip = collectAudios[audioIndex];
+        audioSource.Play();
     }
 }

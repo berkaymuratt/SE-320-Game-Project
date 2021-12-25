@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Chest : MonoBehaviour
 {
     public String chestType;
-    
+
     private bool m_InChestArea;
     private bool m_IsChestOpened;
     private Light m_SpotLight;
@@ -35,16 +35,26 @@ public class Chest : MonoBehaviour
 
     public void OpenChest()
     {
+        PlayChestAudio();
+        
         switch (chestType)
         {
             case "MedkitChest":
                 m_Hero.GetMedkit();
+                m_Hero.PlayCollectAudio(0);
                 break;
             case "AmmoChest":
                 m_Hero.GetAmmo();
+                m_Hero.PlayCollectAudio(1);
                 break;
             case "KeyChest":
                 m_Hero.GetKey();
+
+                GameObject keyChestAudio = transform.GetChild(2).gameObject; //3rd child of KeyChest
+                AudioSource audioSource = keyChestAudio.GetComponent<AudioSource>();
+                audioSource.Play();
+                
+                m_Hero.PlayCollectAudio(2);
                 break;
         }
         
@@ -80,5 +90,12 @@ public class Chest : MonoBehaviour
             m_InChestArea = false;
             ClearText();
         }
+    }
+
+    private void PlayChestAudio()
+    {
+        AudioSource audioSource;
+        audioSource = gameObject.GetComponent<AudioSource>();
+        audioSource.Play();
     }
 }
