@@ -5,11 +5,12 @@ using UnityEngine;
 public class Hero : MonoBehaviour
 {
     public Gun gun;
+    public int health;
 
     // Update is called once per frame
     void Start()
     {
-        
+        health = 100;
     }
 
     void Update()
@@ -18,5 +19,10 @@ public class Hero : MonoBehaviour
         {
             gun.Shoot();
         }
+    }
+
+    public void getDamage(int value)
+    {
+        health -= value;
     }
 }

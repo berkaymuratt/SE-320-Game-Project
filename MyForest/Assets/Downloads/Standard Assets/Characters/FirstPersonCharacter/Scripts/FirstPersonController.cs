@@ -28,11 +28,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
         [SerializeField] private float m_StepInterval;
         
         //MODIFIED 
-        [FormerlySerializedAs("m_outdoorFootstepSounds")] [FormerlySerializedAs("m_OutdoorFootstepSounds")] [FormerlySerializedAs("m_FootstepSounds")] [SerializeField] private AudioClip[] outdoorFootstepSounds;    // an array of footstep sounds that will be randomly selected from (OUTDOOR).
+        [SerializeField] private AudioClip[] outdoorFootstepSounds;    // an array of footstep sounds that will be randomly selected from (OUTDOOR).
         [SerializeField] private AudioClip[] indoorFootstepSounds; // an array of footstep sounds that will be randomly selected from (INDOOR).
 
-        [SerializeField] private AudioClip m_JumpSound;           // the sound played when character leaves the ground.
-        [SerializeField] private AudioClip m_LandSound;           // the sound played when character touches back on ground.
+        [SerializeField] private AudioClip jumpSound;           // the sound played when character leaves the ground.
+        [SerializeField] private AudioClip landSound;           // the sound played when character touches back on ground.
 
         private Camera m_Camera;
         private bool m_Jump;
@@ -96,7 +96,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void PlayLandingSound()
         {
-            m_AudioSource.clip = m_LandSound;
+            m_AudioSource.clip = landSound;
             m_AudioSource.Play();
             m_NextStep = m_StepCycle + .5f;
         }
@@ -146,7 +146,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void PlayJumpSound()
         {
-            m_AudioSource.clip = m_JumpSound;
+            m_AudioSource.clip = jumpSound;
             m_AudioSource.Play();
         }
 
@@ -277,6 +277,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
             body.AddForceAtPosition(m_CharacterController.velocity*0.1f, hit.point, ForceMode.Impulse);
         }
 
+        //Added
+        
         private void OnTriggerEnter(Collider other)
         {
             if (other.gameObject.tag.Equals("IndoorWalkingArea"))
