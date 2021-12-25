@@ -38,18 +38,19 @@ public class Chest : MonoBehaviour
         switch (chestType)
         {
             case "MedkitChest":
-                m_Hero.getMedkit();
+                m_Hero.GetMedkit();
                 break;
             case "AmmoChest":
-                m_Hero.getAmmo();
+                m_Hero.GetAmmo();
                 break;
             case "KeyChest":
-                m_Hero.getKey();
+                m_Hero.GetKey();
                 break;
         }
         
         m_IsChestOpened = true;
         ClearText();
+        m_Hero.UpdateUI();
         m_SpotLight.enabled = false;
     }
 
