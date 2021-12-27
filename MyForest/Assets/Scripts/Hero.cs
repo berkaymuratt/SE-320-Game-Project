@@ -7,14 +7,14 @@ public class Hero : MonoBehaviour
 {
     public Gun gun;
     public int health;
-    public int healValue;
+    public int medkitValue;
+    public int requiredKeysCount;
 
     private int m_MedkitCount;
     private int m_KeyCount;
     
     public AudioClip chestAudio;
     public AudioClip[] collectAudios;
-
 
     public Text MedkitCountText;
     public Text AmmoCountText;
@@ -24,9 +24,20 @@ public class Hero : MonoBehaviour
     public float infoTextTimer;
     private float counter;
 
+    private Transform[] points =
+    {
+        //Points
+    };
+    
+    
+
     // Update is called once per frame
     void Start()
     {
+        
+        //Create Chest
+        //Transform = getRandomPoint()
+        
         m_MedkitCount = 0;
         m_KeyCount = 0;
         health = 100;
@@ -63,7 +74,7 @@ public class Hero : MonoBehaviour
     {
         if (health < 100)
         {
-            health += healValue;
+            health += medkitValue;
             
             if (health > 100)
             {
@@ -89,7 +100,7 @@ public class Hero : MonoBehaviour
     public void GetKey()
     {
         m_KeyCount++;
-        InformationText.text = (4-m_KeyCount) + " Key(s) Left ..";
+        InformationText.text = (requiredKeysCount-m_KeyCount) + " Key(s) Left ..";
     }
 
     public void UpdateUI()
