@@ -182,7 +182,7 @@ MonoBehaviour:
   m_WalkSpeed: 5
   m_RunSpeed: 10
   m_RunstepLenghten: 0.7
-  m_JumpSpeed: 10
+  m_JumpSpeed: 5
   m_StickToGroundForce: 10
   m_GravityMultiplier: 2
   m_MouseLook:
@@ -311,8 +311,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gun: {fileID: 280615092}
   health: 100
-  healValue: 10
-  chestAudio: {fileID: 8300000, guid: 9558b92712cf9714c8eab58b5ca3b86e, type: 3}
+  medkitValue: 0
+  requiredKeysCount: 4
   collectAudios:
   - {fileID: 8300000, guid: 3becec1909f194046945d85ac1077772, type: 3}
   - {fileID: 8300000, guid: 2868e580baee45d449931dc35a5ace81, type: 3}

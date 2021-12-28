@@ -36,16 +36,18 @@ public class Chest : MonoBehaviour
     public void OpenChest()
     {
         PlayChestAudio();
+
+        int audioIndex=-1;
         
         switch (chestType)
         {
             case "MedkitChest":
                 m_Hero.GetMedkit();
-                m_Hero.PlayCollectAudio(0);
+                audioIndex = 0;
                 break;
             case "AmmoChest":
                 m_Hero.GetAmmo();
-                m_Hero.PlayCollectAudio(1);
+                audioIndex = 1;
                 break;
             case "KeyChest":
                 m_Hero.GetKey();
@@ -53,11 +55,11 @@ public class Chest : MonoBehaviour
                 GameObject keyChestAudio = transform.GetChild(2).gameObject; //3rd child of KeyChest
                 AudioSource audioSource = keyChestAudio.GetComponent<AudioSource>();
                 audioSource.Play();
-                
-                m_Hero.PlayCollectAudio(2);
+
+                audioIndex = 2;
                 break;
         }
-        
+        m_Hero.PlayCollectAudio(audioIndex);
         m_IsChestOpened = true;
         ClearText();
         m_Hero.UpdateUI();

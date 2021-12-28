@@ -1101,10 +1101,6 @@ PrefabInstance:
       propertyPath: MedkitCountText
       value: 
       objectReference: {fileID: 426552342}
-    - target: {fileID: 1686691053, guid: 5233df047fa870a4ba2958cf72b4ef34, type: 3}
-      propertyPath: requiredKeysCount
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 137642931452016145, guid: 5233df047fa870a4ba2958cf72b4ef34, type: 3}
       propertyPath: m_Name
       value: Hero
@@ -1152,18 +1148,6 @@ PrefabInstance:
     - target: {fileID: 137642931452242481, guid: 5233df047fa870a4ba2958cf72b4ef34, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 137642931462210545, guid: 5233df047fa870a4ba2958cf72b4ef34, type: 3}
-      propertyPath: m_JumpSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2676734754585513630, guid: 5233df047fa870a4ba2958cf72b4ef34, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3832703582358511421, guid: 5233df047fa870a4ba2958cf72b4ef34, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5233df047fa870a4ba2958cf72b4ef34, type: 3}
@@ -2144,7 +2128,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7258247129904380782, guid: 62eaa679b713e104b8188e74e8d2c932, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7258247129904380782, guid: 62eaa679b713e104b8188e74e8d2c932, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2637,7 +2621,7 @@ Transform:
   - {fileID: 1818982364}
   - {fileID: 1845200219}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &829185781 stripped
 Transform:

@@ -13,7 +13,6 @@ public class Hero : MonoBehaviour
     private int m_MedkitCount;
     private int m_KeyCount;
     
-    public AudioClip chestAudio;
     public AudioClip[] collectAudios;
 
     public Text MedkitCountText;
@@ -24,20 +23,10 @@ public class Hero : MonoBehaviour
     public float infoTextTimer;
     private float counter;
 
-    private Transform[] points =
-    {
-        //Points
-    };
-    
-    
 
     // Update is called once per frame
     void Start()
     {
-        
-        //Create Chest
-        //Transform = getRandomPoint()
-        
         m_MedkitCount = 0;
         m_KeyCount = 0;
         health = 100;
@@ -52,7 +41,12 @@ public class Hero : MonoBehaviour
             gun.Shoot();
             UpdateUI();
         }
+        
+        CheckInfoText();
+    }
 
+    private void CheckInfoText()
+    {
         if (!InformationText.text.Equals(""))
         {
             counter += Time.deltaTime;
