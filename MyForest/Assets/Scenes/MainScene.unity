@@ -108,8 +108,8 @@ NavMeshSettings:
     agentTypeID: 0
     agentRadius: 0.5
     agentHeight: 2
-    agentSlope: 45
-    agentClimb: 0.4
+    agentSlope: 45.8
+    agentClimb: 0.5
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2
@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: e06f9d2e15726ce4b89e40cf4eb06caa, type: 2}
 --- !u!4 &3772828 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4021115012943001550, guid: 84edb9a829e542e43b20ff8579caa6fe, type: 3}
@@ -1151,6 +1151,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5233df047fa870a4ba2958cf72b4ef34, type: 3}
+--- !u!4 &280615100 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 137642931452242481, guid: 5233df047fa870a4ba2958cf72b4ef34, type: 3}
+  m_PrefabInstance: {fileID: 280615099}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &281871510
 GameObject:
   m_ObjectHideFlags: 0
@@ -6150,14 +6155,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3069845873023129595, guid: f0506fc813f51ee4c99d5c3d1259dc5e, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: b7aa1295d3b07264b88825889ac3b40c, type: 2}
-    - target: {fileID: 3069845874424896591, guid: f0506fc813f51ee4c99d5c3d1259dc5e, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: b7aa1295d3b07264b88825889ac3b40c, type: 2}
     - target: {fileID: 3527914506515011294, guid: f0506fc813f51ee4c99d5c3d1259dc5e, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -6272,10 +6269,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6076666459781055408, guid: 8fc56b84db07a2940ad3c733d2e2ad25, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 6076666460952989547, guid: 8fc56b84db07a2940ad3c733d2e2ad25, type: 3}
+      propertyPath: heroTransform
+      value: 
+      objectReference: {fileID: 280615100}
     - target: {fileID: 6076666461322873438, guid: 8fc56b84db07a2940ad3c733d2e2ad25, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -6323,14 +6320,6 @@ PrefabInstance:
     - target: {fileID: 6076666461322873439, guid: 8fc56b84db07a2940ad3c733d2e2ad25, type: 3}
       propertyPath: m_Name
       value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 6751628923539077574, guid: 8fc56b84db07a2940ad3c733d2e2ad25, type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: f01c623f724825e44a923d1ae50256f2, type: 3}
-    - target: {fileID: 6751628923539077574, guid: 8fc56b84db07a2940ad3c733d2e2ad25, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8fc56b84db07a2940ad3c733d2e2ad25, type: 3}
