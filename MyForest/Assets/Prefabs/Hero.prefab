@@ -609,6 +609,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 137642931452242483}
     m_Modifications:
     - target: {fileID: 19726569, guid: bceefb2a39f6db74d9bc9d006687b7f1, type: 3}
+      propertyPath: range
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 19726569, guid: bceefb2a39f6db74d9bc9d006687b7f1, type: 3}
       propertyPath: fpsCam
       value: 
       objectReference: {fileID: 137642931452736561}

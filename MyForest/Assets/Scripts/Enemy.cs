@@ -5,17 +5,18 @@ using UnityStandardAssets.Effects;
 
 public class Enemy : MonoBehaviour
 {
-    private float respawnTime;
+    public float respawnTime;
+    private float spawnTimer;
     public Explosion explosion;
     
     void Start()
     {
-        respawnTime = 0;
+        spawnTimer = 0;
     }
 
     public bool CheckRespawn()
     {
-        if (respawnTime>=5)
+        if (spawnTimer>=respawnTime)
         {
             return true;
         }
@@ -27,12 +28,12 @@ public class Enemy : MonoBehaviour
 
     public void UpdateRespawnTime()
     {
-        respawnTime += Time.deltaTime;
+        spawnTimer += Time.deltaTime;
     }
 
     public void Respawn()
     {
-        respawnTime = 0;
+        spawnTimer = 0;
         gameObject.SetActive(true);
     }
 
