@@ -41,6 +41,11 @@ public class Hero : MonoBehaviour
             gun.Shoot();
             UpdateUI();
         }
+
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            UseMedKit();
+        }
         
         CheckInfoText();
     }
@@ -64,7 +69,7 @@ public class Hero : MonoBehaviour
         health -= value;
     }
 
-    public void UseMedKit()
+    private void UseMedKit()
     {
         if (health < 100)
         {
@@ -77,7 +82,7 @@ public class Hero : MonoBehaviour
         }
         else
         {
-            Debug.Log("Your health is full !");
+            InformationText.text = "Your health is full !";
         }
     }
 
