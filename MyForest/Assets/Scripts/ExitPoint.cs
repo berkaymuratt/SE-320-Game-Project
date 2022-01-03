@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,18 +11,6 @@ public class ExitPoint : MonoBehaviour
     public Text interactionText;
     public Text informationText;
     public Hero hero;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -37,12 +27,19 @@ public class ExitPoint : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.name.Equals("Hero") && CanEscape() && Input.GetKeyDown(KeyCode.E))
+        {
+            Exit();
+        }
+    }
+
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.name.Equals("Hero"))
         {
-            interactionText.text = "";
-            informationText.text = "";
+            ClearTexts();
         }
     }
 
@@ -56,5 +53,17 @@ public class ExitPoint : MonoBehaviour
         {
             return false;
         }
+    }
+    
+    private void ClearTexts()
+    {
+        interactionText.text = "";
+        informationText.text = "";
+    }
+
+    private void Exit()
+    {
+        ClearTexts();
+        Debug.Log("EXIT SUCCESSFULLY");
     }
 }
