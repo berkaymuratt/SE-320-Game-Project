@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.041243024, g: 0.07304468, b: 0.12553185, a: 1}
+  m_IndirectSpecularColor: {r: 0.041243486, g: 0.073045455, b: 0.12553218, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1399,6 +1399,17 @@ Transform:
   m_Father: {fileID: 1071017948}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &372187777 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1686691053, guid: 5233df047fa870a4ba2958cf72b4ef34, type: 3}
+  m_PrefabInstance: {fileID: 280615099}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ca129d9789d6d848a51fad29e327990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &386319153
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6342,6 +6353,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: ExitPoint
       objectReference: {fileID: 0}
+    - target: {fileID: 6317605301130128113, guid: d318fd0d7aa4b4f49b4b3673dde5945e, type: 3}
+      propertyPath: hero
+      value: 
+      objectReference: {fileID: 372187777}
+    - target: {fileID: 6317605301130128113, guid: d318fd0d7aa4b4f49b4b3673dde5945e, type: 3}
+      propertyPath: informationText
+      value: 
+      objectReference: {fileID: 30415599}
+    - target: {fileID: 6317605301130128113, guid: d318fd0d7aa4b4f49b4b3673dde5945e, type: 3}
+      propertyPath: interactionText
+      value: 
+      objectReference: {fileID: 606274435}
     - target: {fileID: 6796760236284076526, guid: d318fd0d7aa4b4f49b4b3673dde5945e, type: 3}
       propertyPath: m_RootOrder
       value: 1

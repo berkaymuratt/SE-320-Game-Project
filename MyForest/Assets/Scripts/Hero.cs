@@ -10,8 +10,8 @@ public class Hero : MonoBehaviour
     public int medkitValue;
     public int requiredKeysCount;
 
-    private int m_MedkitCount;
-    private int m_KeyCount;
+    public int medkitCount;
+    public int keyCount;
     
     public AudioClip[] collectAudios;
 
@@ -27,8 +27,8 @@ public class Hero : MonoBehaviour
     // Update is called once per frame
     void Start()
     {
-        m_MedkitCount = 0;
-        m_KeyCount = 0;
+        medkitCount = 0;
+        keyCount = 0;
         health = 100;
         
         UpdateUI();
@@ -83,7 +83,7 @@ public class Hero : MonoBehaviour
 
     public void GetMedkit()
     {
-        m_MedkitCount++;
+        medkitCount++;
     }
 
     public void GetAmmo()
@@ -93,15 +93,15 @@ public class Hero : MonoBehaviour
 
     public void GetKey()
     {
-        m_KeyCount++;
-        InformationText.text = (requiredKeysCount-m_KeyCount) + " Key(s) Left ..";
+        keyCount++;
+        InformationText.text = (requiredKeysCount-keyCount) + " Key(s) Left ..";
     }
 
     public void UpdateUI()
     {
-        MedkitCountText.text = m_MedkitCount.ToString();
+        MedkitCountText.text = medkitCount.ToString();
         AmmoCountText.text = gun.m_bulletCount.ToString();
-        KeyCountText.text = m_KeyCount.ToString();
+        KeyCountText.text = keyCount.ToString();
     }
 
     public void PlayCollectAudio(int audioIndex)
