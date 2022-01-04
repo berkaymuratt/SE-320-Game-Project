@@ -313,6 +313,8 @@ MonoBehaviour:
   health: 100
   medkitValue: 0
   requiredKeysCount: 4
+  medkitCount: 0
+  keyCount: 4
   collectAudios:
   - {fileID: 8300000, guid: 3becec1909f194046945d85ac1077772, type: 3}
   - {fileID: 8300000, guid: 2868e580baee45d449931dc35a5ace81, type: 3}
