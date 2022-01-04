@@ -36,9 +36,12 @@ public class ChestPoints : MonoBehaviour
             {
                 int randomIndex = Random.Range(0, (allChestPoints.Count - 1));
                 chestPoint = (Transform) allChestPoints[randomIndex];
-            
-                GameObject createdChest = Instantiate(chest, chestPoint.transform.position, new Quaternion());
+
+                Quaternion quaternion = new Quaternion(); // 0,0,0
+                
+                GameObject createdChest = Instantiate(chest, chestPoint.transform.position, quaternion);
                 createdChest.transform.SetParent(chestPoint);
+                createdChest.transform.rotation = quaternion; //Reset Rotation (Rotation was changed in SetParent)
             
                 allChestPoints.Remove(chestPoint);
             }
