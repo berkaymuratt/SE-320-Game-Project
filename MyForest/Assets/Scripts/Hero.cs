@@ -1,15 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class Hero : MonoBehaviour
 {
     public Gun gun;
-    public int health;
-    public int medkitValue;
-    public int requiredKeysCount;
+    
+    private int currentHealth;
+    private int maxHealth = 100;
 
+    private int currentStamina=0;
+    private int maxStamina = 6;
+    
+    public int requiredKeysCount;
+    
     public int medkitCount;
     public int keyCount;
     
@@ -23,19 +30,26 @@ public class Hero : MonoBehaviour
     public float infoTextTimer;
     private float counter;
 
+    private FirstPersonController firstPersonController;
+
 
     // Update is called once per frame
     void Start()
     {
         medkitCount = 0;
         keyCount = 0;
-        health = 100;
+        currentHealth = 100;
         
         UpdateUI();
     }
 
     void Update()
     {
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            Debug.Log("Running");
+        }
+
         if (Input.GetButtonDown("Fire1"))
         {
             gun.Shoot();
@@ -66,18 +80,18 @@ public class Hero : MonoBehaviour
 
     public void GetDamage(int value)
     {
-        health -= value;
+        currentHealth -= value;
     }
 
     private void UseMedKit()
     {
-        if (health < 100)
+        if (currentHealth < maxHealth)
         {
-            health += medkitValue;
+            currentHealth += 20;
             
-            if (health > 100)
+            if (currentHealth > maxHealth)
             {
-                health = 100;
+                currentHealth = maxHealth;
             }
         }
         else

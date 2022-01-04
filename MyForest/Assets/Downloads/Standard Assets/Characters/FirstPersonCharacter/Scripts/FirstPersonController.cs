@@ -294,5 +294,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 isIndoor = false;
             }
         }
+
+        public bool isRunning()
+        {
+            return !m_IsWalking;
+        }
     }
 }
