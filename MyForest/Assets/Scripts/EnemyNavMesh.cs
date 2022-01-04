@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Serialization;
 
 public class EnemyNavMesh : MonoBehaviour
 {
     public Transform heroTransform;
+    public float enemySpeed;
+    
     private NavMeshAgent m_Agent;
     private GameObject m_EnemyCharacter;
 
@@ -14,6 +17,7 @@ public class EnemyNavMesh : MonoBehaviour
     {
         m_Agent = gameObject.GetComponent<NavMeshAgent>();
         m_EnemyCharacter = transform.GetChild(1).gameObject;
+        m_Agent.speed = enemySpeed;
     }
 
     // Update is called once per frame
@@ -21,12 +25,22 @@ public class EnemyNavMesh : MonoBehaviour
     {
         if (m_EnemyCharacter.activeInHierarchy)
         {
-            m_Agent.speed = 5;
             m_Agent.SetDestination(heroTransform.position);
         }
-        else
-        {
-            m_Agent.speed = 0;
-        }
+    }
+
+    public void Move()
+    {
+        m_Agent.speed = enemySpeed;
+    }
+
+    public void Stop()
+    {
+        m_Agent.speed = 0;
+    }
+    
+    public void IncreaseSpeed()
+    {
+        enemySpeed+=0.25f;
     }
 }

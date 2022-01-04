@@ -15,12 +15,6 @@ public class Explosion : MonoBehaviour
         m_AudioSource = gameObject.GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void Play()
     {
         m_AudioSource.Play();
