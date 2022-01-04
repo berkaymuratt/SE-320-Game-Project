@@ -17,7 +17,7 @@ public class Gun : MonoBehaviour
     public int m_bulletCount;
     public float range = 100f;
 
-    private Enemy m_Enemy;
+    private Enemy m_EnemyCharacter;
     
 
     // Start is called before the first frame update
@@ -55,8 +55,8 @@ public class Gun : MonoBehaviour
 
                     if (other.gameObject.tag.Equals("EnemyCharacter"))
                     {
-                        m_Enemy = other.GetComponent<Enemy>();
-                        m_Enemy.Disappear();
+                        m_EnemyCharacter = other.GetComponent<Enemy>();
+                        m_EnemyCharacter.Disappear();
                     }
                 }
             }
@@ -69,14 +69,14 @@ public class Gun : MonoBehaviour
     
     public void CheckEnemyRespawn()
     {
-        if (m_Enemy != null)
+        if (m_EnemyCharacter != null)
         {
-            if (!m_Enemy.gameObject.activeInHierarchy)
+            if (!m_EnemyCharacter.gameObject.activeInHierarchy)
             {
-                m_Enemy.UpdateRespawnTime();
-                if (m_Enemy.CheckRespawn())
+                m_EnemyCharacter.UpdateRespawnTime();
+                if (m_EnemyCharacter.CheckRespawn())
                 {
-                    m_Enemy.Respawn();
+                    m_EnemyCharacter.Respawn();
                 }
             }
         }

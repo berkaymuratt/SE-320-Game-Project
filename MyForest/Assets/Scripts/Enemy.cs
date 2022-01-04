@@ -13,9 +13,12 @@ public class Enemy : MonoBehaviour
     public AudioSource enemyAudioSource;
     public AudioClip respawnAudio;
     public AudioClip disappearAudio;
+
+    private EnemyNavMesh enemyNavMesh;
     
     void Start()
     {
+        enemyNavMesh = transform.parent.gameObject.GetComponent<EnemyNavMesh>();
         respawnTimer = 0;
     }
 
@@ -43,12 +46,19 @@ public class Enemy : MonoBehaviour
         
         enemyAudioSource.clip = respawnAudio;
         enemyAudioSource.Play();
+        
+        enemyNavMesh.IncreaseSpeed();
+        enemyNavMesh.Move(); //Enemy starts moving again
     }
 
     public void Disappear()
     {
+        enemyNavMesh.Stop(); //Enemy stops
+
         explosion.Play();
         gameObject.SetActive(false);
+
+        respawnTime += 2;
 
         enemyAudioSource.clip = disappearAudio;
         enemyAudioSource.Play();

@@ -1729,7 +1729,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 137642931452242481, guid: 5233df047fa870a4ba2958cf72b4ef34, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 387.88
+      value: 390.73
       objectReference: {fileID: 0}
     - target: {fileID: 137642931452242481, guid: 5233df047fa870a4ba2958cf72b4ef34, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1737,7 +1737,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 137642931452242481, guid: 5233df047fa870a4ba2958cf72b4ef34, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 530
+      value: 211.97
       objectReference: {fileID: 0}
     - target: {fileID: 137642931452242481, guid: 5233df047fa870a4ba2958cf72b4ef34, type: 3}
       propertyPath: m_LocalRotation.w
@@ -10852,9 +10852,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5820677799854171079, guid: 8fc56b84db07a2940ad3c733d2e2ad25, type: 3}
-      propertyPath: MaxDistance
-      value: 100
+    - target: {fileID: 6076666460952989547, guid: 8fc56b84db07a2940ad3c733d2e2ad25, type: 3}
+      propertyPath: enemySpeed
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6076666460952989547, guid: 8fc56b84db07a2940ad3c733d2e2ad25, type: 3}
       propertyPath: heroTransform
