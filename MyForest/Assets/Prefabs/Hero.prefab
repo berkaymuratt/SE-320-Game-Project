@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05ec5cf00ca181d45a42ba1870e148c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_IsWalking: 0
+  m_IsRunning: 0
   m_WalkSpeed: 5
   m_RunSpeed: 10
   m_RunstepLenghten: 0.7
@@ -310,11 +310,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gun: {fileID: 280615092}
-  health: 100
-  medkitValue: 0
+  currentStamina: 6
   requiredKeysCount: 4
   medkitCount: 0
-  keyCount: 4
+  keyCount: 0
   collectAudios:
   - {fileID: 8300000, guid: 3becec1909f194046945d85ac1077772, type: 3}
   - {fileID: 8300000, guid: 2868e580baee45d449931dc35a5ace81, type: 3}

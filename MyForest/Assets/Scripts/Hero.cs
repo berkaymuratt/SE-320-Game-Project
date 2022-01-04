@@ -12,8 +12,8 @@ public class Hero : MonoBehaviour
     private int currentHealth;
     private int maxHealth = 100;
 
-    private int currentStamina=0;
-    private int maxStamina = 6;
+    public float currentStamina;
+    private float maxStamina = 6f;
     
     public int requiredKeysCount;
     
@@ -30,9 +30,6 @@ public class Hero : MonoBehaviour
     public float infoTextTimer;
     private float counter;
 
-    private FirstPersonController firstPersonController;
-
-
     // Update is called once per frame
     void Start()
     {
@@ -47,7 +44,11 @@ public class Hero : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            Debug.Log("Running");
+            DecreaseCurrentStamina();
+        }
+        else
+        {
+            IncreaseCurrentStamina();
         }
 
         if (Input.GetButtonDown("Fire1"))
@@ -138,5 +139,26 @@ public class Hero : MonoBehaviour
         
         audioSource.clip = collectAudios[audioIndex];
         audioSource.Play();
+    }
+
+    public void IncreaseCurrentStamina()
+    {
+        if (currentStamina < maxStamina)
+        {
+            currentStamina += Time.deltaTime;
+        }
+    }
+
+    public void DecreaseCurrentStamina()
+    {
+        if (currentStamina > 0)
+        {
+            currentStamina -= Time.deltaTime;
+        }
+    }
+
+    public float GetCurrentStamina()
+    {
+        return currentStamina;
     }
 }
