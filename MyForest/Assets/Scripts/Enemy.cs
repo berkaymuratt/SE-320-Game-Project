@@ -1,22 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityStandardAssets.Effects;
 
 public class Enemy : MonoBehaviour
 {
     public float respawnTime;
-    private float spawnTimer;
+    private float respawnTimer;
     public Explosion explosion;
+
+    public AudioSource enemyAudioSource;
+    public AudioClip respawnAudio;
+    public AudioClip disappearAudio;
     
     void Start()
     {
-        spawnTimer = 0;
+        respawnTimer = 0;
     }
 
     public bool CheckRespawn()
     {
-        if (spawnTimer>=respawnTime)
+        if (respawnTimer>=respawnTime)
         {
             return true;
         }
@@ -28,18 +33,24 @@ public class Enemy : MonoBehaviour
 
     public void UpdateRespawnTime()
     {
-        spawnTimer += Time.deltaTime;
+        respawnTimer += Time.deltaTime;
     }
 
     public void Respawn()
     {
-        spawnTimer = 0;
+        respawnTimer = 0;
         gameObject.SetActive(true);
+        
+        enemyAudioSource.clip = respawnAudio;
+        enemyAudioSource.Play();
     }
 
     public void Disappear()
     {
         explosion.Play();
         gameObject.SetActive(false);
+
+        enemyAudioSource.clip = disappearAudio;
+        enemyAudioSource.Play();
     }
 }
