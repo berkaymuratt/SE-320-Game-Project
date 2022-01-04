@@ -26,9 +26,11 @@ public class Hero : MonoBehaviour
     public Text AmmoCountText;
     public Text KeyCountText;
     public Text InformationText;
-
+    public Text StaminaText;
+    
     public float infoTextTimer;
     private float counter;
+   
 
     // Update is called once per frame
     void Start()
@@ -146,6 +148,7 @@ public class Hero : MonoBehaviour
         if (currentStamina < maxStamina)
         {
             currentStamina += Time.deltaTime;
+            UpdateStaminaText();
         }
     }
 
@@ -154,11 +157,17 @@ public class Hero : MonoBehaviour
         if (currentStamina > 0)
         {
             currentStamina -= Time.deltaTime;
+            UpdateStaminaText();
         }
     }
 
     public float GetCurrentStamina()
     {
         return currentStamina;
+    }
+
+    public void UpdateStaminaText()
+    {
+        StaminaText.text = currentStamina + "";
     }
 }
