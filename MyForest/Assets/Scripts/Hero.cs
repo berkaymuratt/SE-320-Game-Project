@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -40,6 +41,7 @@ public class Hero : MonoBehaviour
         currentHealth = 100;
         
         UpdateUI();
+        UpdateStaminaText();
     }
 
     void Update()
