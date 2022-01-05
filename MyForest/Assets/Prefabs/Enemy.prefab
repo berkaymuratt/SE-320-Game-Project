@@ -258,7 +258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heroTransform: {fileID: 0}
-  speed: 5
+  enemySpeed: 5
 --- !u!195 &6076666460952989548
 NavMeshAgent:
   m_ObjectHideFlags: 0

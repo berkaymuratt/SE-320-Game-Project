@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.041243024, g: 0.07304468, b: 0.12553185, a: 1}
+  m_IndirectSpecularColor: {r: 0.041243486, g: 0.073045455, b: 0.12553218, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5810,6 +5810,9 @@ MonoBehaviour:
   medkitChest: {fileID: 8066415202557665748, guid: 6215aa9ddbfa54d43bc443263461b821, type: 3}
   ammoChest: {fileID: 8066415202557665748, guid: 62eaa679b713e104b8188e74e8d2c932, type: 3}
   keyChest: {fileID: 8066415202557665748, guid: f8b7a4a97ada4744795cdfaa2a8a7465, type: 3}
+  medkitChestCount: 1
+  ammoChestCount: 1
+  keyChestCount: 1
 --- !u!1001 &1063415934
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10917,10 +10920,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 6076666460952989547, guid: 8fc56b84db07a2940ad3c733d2e2ad25, type: 3}
-      propertyPath: enemySpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6076666460952989547, guid: 8fc56b84db07a2940ad3c733d2e2ad25, type: 3}
       propertyPath: heroTransform
       value: 
       objectReference: {fileID: 280615100}
@@ -10971,10 +10970,6 @@ PrefabInstance:
     - target: {fileID: 6076666461322873439, guid: 8fc56b84db07a2940ad3c733d2e2ad25, type: 3}
       propertyPath: m_Name
       value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 6076666461322873439, guid: 8fc56b84db07a2940ad3c733d2e2ad25, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8fc56b84db07a2940ad3c733d2e2ad25, type: 3}

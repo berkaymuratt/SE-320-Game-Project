@@ -7,6 +7,10 @@ public class ChestPoints : MonoBehaviour
     public GameObject medkitChest;
     public GameObject ammoChest;
     public GameObject keyChest;
+
+    public int medkitChestCount;
+    public int ammoChestCount;
+    public int keyChestCount;
     
     private ArrayList allChestPoints;
     private Transform chestPoint;
@@ -21,9 +25,9 @@ public class ChestPoints : MonoBehaviour
             allChestPoints.Add(gameObject.transform.GetChild(i));
         }
         
-        SpawnChest(medkitChest, 2);
-        SpawnChest(ammoChest, 2);
-        SpawnChest(keyChest, 2);
+        SpawnChest(medkitChest, medkitChestCount);
+        SpawnChest(ammoChest, ammoChestCount);
+        SpawnChest(keyChest, keyChestCount);
        
         
     }

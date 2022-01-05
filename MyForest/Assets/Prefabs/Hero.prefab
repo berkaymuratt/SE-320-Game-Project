@@ -322,6 +322,7 @@ MonoBehaviour:
   AmmoCountText: {fileID: 0}
   KeyCountText: {fileID: 0}
   InformationText: {fileID: 0}
+  StaminaText: {fileID: 0}
   infoTextTimer: 5
 --- !u!1 &137642931452016147
 GameObject:
