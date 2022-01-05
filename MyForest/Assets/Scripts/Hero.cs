@@ -172,4 +172,14 @@ public class Hero : MonoBehaviour
     {
         StaminaText.text = currentStamina + "";
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log(other.gameObject);
+        
+        if (other.gameObject.tag.Equals("EnemyCharacter"))
+        {
+            InformationText.text = "GAME OVER !";
+        }
+    }
 }
