@@ -146,13 +146,13 @@ public class Hero : MonoBehaviour
 
     private void UpdateStamina()
     {
-        if (fpsController.IsRunning())
+        if (!fpsController.IsRunning() && !Input.GetKey(KeyCode.LeftShift))
         {
-            DecreaseCurrentStamina();
+            IncreaseCurrentStamina();
         }
         else
         {
-            IncreaseCurrentStamina();
+            DecreaseCurrentStamina();
         }
     }
 
@@ -187,8 +187,6 @@ public class Hero : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.gameObject);
-        
         if (other.gameObject.tag.Equals("EnemyCharacter"))
         {
             InformationText.text = "GAME OVER !";
