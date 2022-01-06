@@ -31,11 +31,15 @@ public class Hero : MonoBehaviour
     
     public float infoTextTimer;
     private float counter;
+
+    private FirstPersonController fpsController;
    
 
     // Update is called once per frame
     void Start()
     {
+        fpsController = gameObject.GetComponent<FirstPersonController>();
+        
         medkitCount = 0;
         keyCount = 0;
         currentHealth = 100;
@@ -46,14 +50,7 @@ public class Hero : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            DecreaseCurrentStamina();
-        }
-        else
-        {
-            IncreaseCurrentStamina();
-        }
+        UpdateStamina();
 
         if (Input.GetButtonDown("Fire1"))
         {
@@ -145,7 +142,19 @@ public class Hero : MonoBehaviour
         audioSource.Play();
     }
 
-    public void IncreaseCurrentStamina()
+    private void UpdateStamina()
+    {
+        if (fpsController.IsRunning())
+        {
+            DecreaseCurrentStamina();
+        }
+        else
+        {
+            IncreaseCurrentStamina();
+        }
+    }
+
+    private void IncreaseCurrentStamina()
     {
         if (currentStamina < maxStamina)
         {
@@ -154,7 +163,7 @@ public class Hero : MonoBehaviour
         }
     }
 
-    public void DecreaseCurrentStamina()
+    private void DecreaseCurrentStamina()
     {
         if (currentStamina > 0)
         {

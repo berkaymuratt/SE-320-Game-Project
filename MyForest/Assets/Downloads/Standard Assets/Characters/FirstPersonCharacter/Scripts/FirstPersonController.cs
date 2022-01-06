@@ -237,7 +237,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 #if !MOBILE_INPUT
             // On standalone builds, walk/run speed is modified by a key press.
             // keep track of whether or not the character is walking or running
-            m_IsRunning = Input.GetKey(KeyCode.LeftShift) && CanRun(); //Changed
+            m_IsRunning = Input.GetKey(KeyCode.LeftShift) && CanRun() && m_CharacterController.velocity.sqrMagnitude > 0; //Changed
 #endif
             // set the desired speed to be walking or running
             speed = m_IsRunning ? m_RunSpeed : m_WalkSpeed; //Changed
@@ -299,7 +299,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
         }
 
-        public bool CanRun()
+        private bool CanRun()
         {
             if (hero.GetCurrentStamina() > 0)
             {
@@ -309,6 +309,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 return false;
             }
+        }
+
+        public bool IsRunning()
+        {
+            return m_IsRunning;
         }
     }
 }
