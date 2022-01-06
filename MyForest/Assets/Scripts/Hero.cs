@@ -13,9 +13,12 @@ public class Hero : MonoBehaviour
     private int currentHealth;
     private int maxHealth = 100;
 
-    public float currentStamina;
-    private float maxStamina = 6f;
-    
+    private float currentStamina;
+    private float maxStamina = 100f;
+
+    public HealthBar healthBar;
+    public StaminaBar staminaBar;
+
     public int requiredKeysCount;
     
     public int medkitCount;
@@ -27,8 +30,7 @@ public class Hero : MonoBehaviour
     public Text AmmoCountText;
     public Text KeyCountText;
     public Text InformationText;
-    public Text StaminaText;
-    
+
     public float infoTextTimer;
     private float counter;
 
@@ -43,9 +45,9 @@ public class Hero : MonoBehaviour
         medkitCount = 0;
         keyCount = 0;
         currentHealth = 100;
+        currentStamina = 100;
         
         UpdateUI();
-        UpdateStaminaText();
     }
 
     void Update()
@@ -158,8 +160,8 @@ public class Hero : MonoBehaviour
     {
         if (currentStamina < maxStamina)
         {
-            currentStamina += Time.deltaTime;
-            UpdateStaminaText();
+            currentStamina += Time.deltaTime*10;
+            UpdateStaminaBar();
         }
     }
 
@@ -167,8 +169,8 @@ public class Hero : MonoBehaviour
     {
         if (currentStamina > 0)
         {
-            currentStamina -= Time.deltaTime;
-            UpdateStaminaText();
+            currentStamina -= Time.deltaTime*10;
+            UpdateStaminaBar();
         }
     }
 
@@ -177,9 +179,10 @@ public class Hero : MonoBehaviour
         return currentStamina;
     }
 
-    public void UpdateStaminaText()
+    private void UpdateStaminaBar()
     {
-        StaminaText.text = currentStamina + "";
+        int value = (int) Math.Abs(currentStamina);
+        staminaBar.SetStamina(value);
     }
 
     private void OnTriggerEnter(Collider other)
