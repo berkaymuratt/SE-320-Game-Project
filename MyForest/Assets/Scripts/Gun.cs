@@ -50,8 +50,6 @@ public class Gun : MonoBehaviour
                 if (isHit)
                 {
                     Transform other = hit.transform;
-                    
-                    Debug.Log(other.gameObject.name);
 
                     if (other.gameObject.tag.Equals("EnemyCharacter"))
                     {

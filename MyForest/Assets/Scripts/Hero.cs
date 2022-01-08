@@ -181,7 +181,6 @@ public class Hero : MonoBehaviour
 
     private void UpdateStaminaBar()
     {
-        //int value = (int) Math.Abs(currentStamina);
         staminaBar.value = currentStamina;
     }
 
