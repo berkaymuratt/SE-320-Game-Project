@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.041243024, g: 0.07304468, b: 0.12553185, a: 1}
+  m_IndirectSpecularColor: {r: 0.041243486, g: 0.073045455, b: 0.12553218, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -440,11 +440,11 @@ PrefabInstance:
     - target: {fileID: 1686691053, guid: 5233df047fa870a4ba2958cf72b4ef34, type: 3}
       propertyPath: healthBar
       value: 
-      objectReference: {fileID: 1259140693}
+      objectReference: {fileID: 1259140692}
     - target: {fileID: 1686691053, guid: 5233df047fa870a4ba2958cf72b4ef34, type: 3}
       propertyPath: staminaBar
       value: 
-      objectReference: {fileID: 838200803}
+      objectReference: {fileID: 838200802}
     - target: {fileID: 1686691053, guid: 5233df047fa870a4ba2958cf72b4ef34, type: 3}
       propertyPath: KeyCountText
       value: 
@@ -1144,7 +1144,6 @@ GameObject:
   m_Component:
   - component: {fileID: 838200801}
   - component: {fileID: 838200802}
-  - component: {fileID: 838200803}
   m_Layer: 5
   m_Name: StaminaBar
   m_TagString: Untagged
@@ -1172,7 +1171,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 216.13, y: -127.91}
-  m_SizeDelta: {x: 248.94, y: 31.4258}
+  m_SizeDelta: {x: 248.94, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &838200802
 MonoBehaviour:
@@ -1225,19 +1224,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &838200803
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 838200800}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcb47b3352ec04e3a89d0daf5da4a7b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slider: {fileID: 838200802}
 --- !u!1 &1140422033
 GameObject:
   m_ObjectHideFlags: 0
@@ -1402,7 +1388,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1259140691}
   - component: {fileID: 1259140692}
-  - component: {fileID: 1259140693}
   m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
@@ -1429,8 +1414,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 216.12848, y: -72.70001}
-  m_SizeDelta: {x: 248.9359, y: 31.4258}
+  m_AnchoredPosition: {x: 216.12848, y: -69.97693}
+  m_SizeDelta: {x: 248.9359, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1259140692
 MonoBehaviour:
@@ -1483,19 +1468,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1259140693
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1259140690}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c21e3ea99b7d433e8308593a0fa3e2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slider: {fileID: 1259140692}
 --- !u!1 &1300148000
 GameObject:
   m_ObjectHideFlags: 0

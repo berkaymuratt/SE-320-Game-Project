@@ -16,8 +16,8 @@ public class Hero : MonoBehaviour
     private float currentStamina;
     private float maxStamina = 100f;
 
-    public HealthBar healthBar;
-    public StaminaBar staminaBar;
+    public Slider healthBar;
+    public Slider staminaBar;
 
     public int requiredKeysCount;
     
@@ -181,8 +181,8 @@ public class Hero : MonoBehaviour
 
     private void UpdateStaminaBar()
     {
-        int value = (int) Math.Abs(currentStamina);
-        staminaBar.SetStamina(value);
+        //int value = (int) Math.Abs(currentStamina);
+        staminaBar.value = currentStamina;
     }
 
     private void OnTriggerEnter(Collider other)
