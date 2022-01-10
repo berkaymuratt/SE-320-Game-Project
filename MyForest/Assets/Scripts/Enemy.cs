@@ -22,7 +22,7 @@ public class Enemy : MonoBehaviour
         enemyNavMesh = transform.parent.gameObject.GetComponent<EnemyNavMesh>();
         respawnTimer = 0;
     }
-
+    
     public bool CheckRespawn()
     {
         if (respawnTimer>=respawnTime)
