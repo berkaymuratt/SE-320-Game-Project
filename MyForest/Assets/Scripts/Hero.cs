@@ -68,20 +68,6 @@ public class Hero : MonoBehaviour
         CheckInfoText();
     }
 
-    private void CheckInfoText()
-    {
-        if (!InformationText.text.Equals(""))
-        {
-            counter += Time.deltaTime;
-        }
-
-        if (counter >= infoTextTimer)
-        {
-            InformationText.text = "";
-            counter = 0;
-        }
-    }
-
     public void GetDamage(int value)
     {
         currentHealth -= value;
@@ -182,6 +168,20 @@ public class Hero : MonoBehaviour
     private void UpdateStaminaBar()
     {
         staminaBar.value = currentStamina;
+    }
+    
+    private void CheckInfoText()
+    {
+        if (!InformationText.text.Equals(""))
+        {
+            counter += Time.deltaTime;
+        }
+
+        if (counter >= infoTextTimer)
+        {
+            InformationText.text = "";
+            counter = 0;
+        }
     }
 
     private void OnTriggerEnter(Collider other)

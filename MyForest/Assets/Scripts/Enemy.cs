@@ -23,6 +23,19 @@ public class Enemy : MonoBehaviour
         respawnTimer = 0;
     }
     
+    public void Disappear()
+    {
+        enemyNavMesh.Stop(); //Enemy stops
+
+        explosion.Play();
+        gameObject.SetActive(false);
+
+        respawnTime += 2;
+
+        enemyAudioSource.clip = disappearAudio;
+        enemyAudioSource.Play();
+    }
+    
     public bool CheckRespawn()
     {
         if (respawnTimer>=respawnTime)
@@ -50,18 +63,5 @@ public class Enemy : MonoBehaviour
         
         enemyNavMesh.IncreaseSpeed();
         enemyNavMesh.Move(); //Enemy starts moving again
-    }
-
-    public void Disappear()
-    {
-        enemyNavMesh.Stop(); //Enemy stops
-
-        explosion.Play();
-        gameObject.SetActive(false);
-
-        respawnTime += 2;
-
-        enemyAudioSource.clip = disappearAudio;
-        enemyAudioSource.Play();
     }
 }
