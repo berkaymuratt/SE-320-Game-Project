@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Timers;
 using UnityEngine;
 
 public class ChestPoints : MonoBehaviour
@@ -24,12 +25,30 @@ public class ChestPoints : MonoBehaviour
         {
             allChestPoints.Add(gameObject.transform.GetChild(i));
         }
+
+        GameObject enviroment = GameObject.Find("Enviroment");
+
+        for (int i = 5; i <= 8; i++)
+        {
+            Transform objectsListTransform = enviroment.transform.GetChild(i);
+
+            for (int j = 0; j < objectsListTransform.childCount; j++)
+            {
+                Transform gameObjectTransform = objectsListTransform.GetChild(j);
+                
+                Transform chestPoints = gameObjectTransform.GetChild(gameObjectTransform.childCount - 1);
+
+                for (int z = 0; z < chestPoints.childCount; z++)
+                {
+                    allChestPoints.Add(chestPoints.GetChild(z));
+                }
+            }
+        }
         
         SpawnChest(medkitChest, medkitChestCount);
         SpawnChest(ammoChest, ammoChestCount);
         SpawnChest(keyChest, keyChestCount);
-       
-        
+
     }
 
     private void SpawnChest(GameObject chest, int count)
@@ -47,6 +66,8 @@ public class ChestPoints : MonoBehaviour
                 createdChest.transform.SetParent(chestPoint);
                 createdChest.transform.rotation = quaternion; //Reset Rotation (Rotation was changed in SetParent)
             
+                Debug.Log(chestPoint.transform.position.x + " " + chestPoint.transform.position.y + " " + chestPoint.transform.position.z);
+                
                 allChestPoints.Remove(chestPoint);
             }
         }

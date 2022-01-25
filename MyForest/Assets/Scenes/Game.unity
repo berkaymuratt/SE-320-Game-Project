@@ -438,6 +438,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1686691053, guid: 5233df047fa870a4ba2958cf72b4ef34, type: 3}
+      propertyPath: timeText
+      value: 
+      objectReference: {fileID: 1196956400}
+    - target: {fileID: 1686691053, guid: 5233df047fa870a4ba2958cf72b4ef34, type: 3}
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1259140692}
@@ -2214,6 +2218,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1054490587, guid: d685348fd6022904e85ba1a0a8aac96d, type: 3}
+      propertyPath: m_Name
+      value: SpawnChests
+      objectReference: {fileID: 0}
+    - target: {fileID: 92819644219976961, guid: d685348fd6022904e85ba1a0a8aac96d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 133
+      objectReference: {fileID: 0}
     - target: {fileID: 271353741383008625, guid: d685348fd6022904e85ba1a0a8aac96d, type: 3}
       propertyPath: hero
       value: 
@@ -2273,6 +2285,14 @@ PrefabInstance:
     - target: {fileID: 271353742059579088, guid: d685348fd6022904e85ba1a0a8aac96d, type: 3}
       propertyPath: m_Name
       value: Forest
+      objectReference: {fileID: 0}
+    - target: {fileID: 934136489142934352, guid: d685348fd6022904e85ba1a0a8aac96d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 121
+      objectReference: {fileID: 0}
+    - target: {fileID: 934136489142934352, guid: d685348fd6022904e85ba1a0a8aac96d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 197
       objectReference: {fileID: 0}
     - target: {fileID: 934136490481103099, guid: d685348fd6022904e85ba1a0a8aac96d, type: 3}
       propertyPath: m_LocalPosition.y

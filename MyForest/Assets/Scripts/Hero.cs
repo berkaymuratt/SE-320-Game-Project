@@ -9,6 +9,7 @@ using UnityStandardAssets.Characters.FirstPerson;
 public class Hero : MonoBehaviour
 {
     public Gun gun;
+    public float timer;
     
     private int currentHealth;
     private int maxHealth = 100;
@@ -30,6 +31,7 @@ public class Hero : MonoBehaviour
     public Text AmmoCountText;
     public Text KeyCountText;
     public Text InformationText;
+    public Text timeText;
 
     public float infoTextTimer;
     private float counter;
@@ -46,7 +48,9 @@ public class Hero : MonoBehaviour
         keyCount = 0;
         currentHealth = 100;
         currentStamina = 100;
-        
+
+        timer = 600; // 10 minutes in seconds
+
         UpdateUI();
     }
 
@@ -65,6 +69,7 @@ public class Hero : MonoBehaviour
             UseMedKit();
         }
         
+        UpdateTimer();
         CheckInfoText();
     }
 
@@ -111,6 +116,26 @@ public class Hero : MonoBehaviour
         MedkitCountText.text = medkitCount.ToString();
         AmmoCountText.text = gun.m_bulletCount.ToString();
         KeyCountText.text = keyCount.ToString();
+    }
+
+    private void UpdateTimer()
+    {
+        timer -= Time.deltaTime;
+
+        int minute = (int) timer / 60;
+        int second = (int) timer % 60;
+
+        String time = "0" + minute + ":";
+
+        if (second < 10)
+        {
+            time += "0";
+        }
+
+        time+=second;
+
+        timeText.text = time;
+
     }
 
     public void PlayCollectAudio(int audioIndex)
