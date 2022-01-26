@@ -64,6 +64,6 @@ public class ExitPoint : MonoBehaviour
     private void Exit()
     {
         ClearTexts();
-        hero.GameOver(true,"You Escaped !");
+        hero.setEndType(EndTypes.ESCAPED);
     }
 }

@@ -8,6 +8,14 @@ using UnityEngine.Serialization;
 using UnityEngine.UI;
 using UnityStandardAssets.Characters.FirstPerson;
 
+public enum EndTypes
+{
+    CAUGHT,
+    DIED,
+    TIMEISOVER,
+    ESCAPED,
+}
+
 public class Hero : MonoBehaviour
 {
     public Gun gun;
@@ -38,9 +46,14 @@ public class Hero : MonoBehaviour
     private float counter;
     
     private float timer;
-    
+    private bool isGameOver;
+
+    private EndTypes EndType;
+
     public Text EndingText;
     public Text EndingInfoText;
+
+    private float endingScreenTimer;
 
     public CanvasGroup EndingCanvasGroup;
     public GameObject OnPlayCanvas;
@@ -58,8 +71,11 @@ public class Hero : MonoBehaviour
         currentHealth = 100;
         currentStamina = 100;
 
-        timer = 10; // 10 minutes in seconds (600)
-        
+        timer = 20; // 10 minutes in seconds (600)
+        isGameOver = false;
+
+        endingScreenTimer = 5;
+
         UpdateUI();
     }
 
@@ -80,17 +96,10 @@ public class Hero : MonoBehaviour
 
         CheckTimer();
         CheckInfoText();
-    }
 
-    private void CheckTimer()
-    {
-        if (timer <= 0)
+        if (isGameOver)
         {
-            GameOver(false, "..Time is Over..");
-        }
-        else
-        {
-            UpdateTimer();
+            CheckEndTypes();
         }
     }
 
@@ -141,26 +150,6 @@ public class Hero : MonoBehaviour
         MedkitCountText.text = medkitCount.ToString();
         AmmoCountText.text = gun.m_bulletCount.ToString();
         KeyCountText.text = keyCount.ToString();
-    }
-
-    private void UpdateTimer()
-    {
-        timer -= Time.deltaTime;
-
-        int minute = (int) timer / 60;
-        int second = (int) timer % 60;
-
-        String time = "0" + minute + ":";
-
-        if (second < 10)
-        {
-            time += "0";
-        }
-
-        time+=second;
-
-        timeText.text = time;
-
     }
 
     public void PlayCollectAudio(int audioIndex)
@@ -238,14 +227,79 @@ public class Hero : MonoBehaviour
     {
         if (other.gameObject.tag.Equals("EnemyCharacter"))
         {
-            GameOver(false, "..You Got Caught..");
+            setEndType(EndTypes.CAUGHT);
+        }
+    }
+    
+    private void CheckTimer()
+    {
+        if (timer <= 0)
+        {
+            setEndType(EndTypes.TIMEISOVER);
+        }
+        else
+        {
+            UpdateTimer();
+        }
+    }
+
+    private void UpdateTimer()
+    {
+        timer -= Time.deltaTime;
+
+        int minute = (int) timer / 60;
+        int second = (int) timer % 60;
+
+        String time = "0" + minute + ":";
+
+        if (second < 10)
+        {
+            time += "0";
+        }
+
+        time+=second;
+
+        timeText.text = time;
+
+        if (timer <= 10)
+        {
+            timeText.color = Color.red;
+        }
+
+    }
+
+    private void CheckEndTypes()
+    {
+        switch (EndType)
+        {
+            case EndTypes.DIED:
+
+                break;
+            case EndTypes.CAUGHT:
+                GameOver(false, "..You Got Caught..");
+                break;
+            case EndTypes.TIMEISOVER:
+                GameOver(false, "..Time is Over..");
+                break;
+            case EndTypes.ESCAPED:
+                GameOver(true,"You Escaped !");
+                break;
+        }
+    }
+
+    public void setEndType(EndTypes types)
+    {
+        if (!isGameOver)
+        {
+            isGameOver = true;
+            EndType = types;
         }
     }
 
     public void GameOver(bool isEscaped, String message)
     {
         if (isEscaped)
-        {
+        { 
             EndingText.color = Color.white;
             EndingText.text = "You Escaped !";
         }
@@ -264,13 +318,19 @@ public class Hero : MonoBehaviour
         }
         else
         {
-            // Freeze the Game
-            Time.timeScale = 0;
+            if (endingScreenTimer > 0)
+            {
+                endingScreenTimer -= Time.deltaTime;
+            }
+            else
+            {
+                // Freeze the Game
+                Time.timeScale = 0;
 
-            // Load the ending scene
-            int newSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
-            SceneManager.LoadScene(newSceneIndex);
-          
+                // Load the ending scene
+                int newSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+                SceneManager.LoadScene(newSceneIndex);
+            }
         }
     }
 }
