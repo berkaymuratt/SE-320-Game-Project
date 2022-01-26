@@ -103,26 +103,39 @@ public class Hero : MonoBehaviour
     public void GetDamage(int value)
     {
         currentHealth -= value;
-
         healthBar.value = currentHealth;
+
+        if (currentHealth <= 0)
+        {
+            setEndType(EndTypes.DIED);
+        }
     }
 
     private void UseMedKit()
     {
-        if (currentHealth < maxHealth)
+        if (medkitCount > 0)
         {
-            currentHealth += 20;
-            
-            if (currentHealth > maxHealth)
+            if (currentHealth < maxHealth)
             {
-                currentHealth = maxHealth;
-            }
+                currentHealth += 20;
             
-            healthBar.value = currentHealth;
+                if (currentHealth > maxHealth)
+                {
+                    currentHealth = maxHealth;
+                }
+            
+                healthBar.value = currentHealth;
+                medkitCount--;
+                UpdateUI();
+            }
+            else
+            {
+                InformationText.text = "Your health is full !";
+            }
         }
         else
         {
-            InformationText.text = "Your health is full !";
+            InformationText.text = "You don't have any Medkit !";
         }
     }
 
@@ -270,7 +283,7 @@ public class Hero : MonoBehaviour
         switch (EndType)
         {
             case EndTypes.DIED:
-
+                GameOver(false, "..You Died..");
                 break;
             case EndTypes.CAUGHT:
                 GameOver(false, "..You Got Caught..");
