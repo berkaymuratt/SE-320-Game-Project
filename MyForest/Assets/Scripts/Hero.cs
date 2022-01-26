@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 using UnityStandardAssets.Characters.FirstPerson;
@@ -9,8 +11,7 @@ using UnityStandardAssets.Characters.FirstPerson;
 public class Hero : MonoBehaviour
 {
     public Gun gun;
-    public float timer;
-    
+
     private int currentHealth;
     private int maxHealth = 100;
 
@@ -35,6 +36,14 @@ public class Hero : MonoBehaviour
 
     public float infoTextTimer;
     private float counter;
+    
+    private float timer;
+
+    public Text EndingText;
+    public Text EndingInfoText;
+    
+    public CanvasGroup EndingCanvasGroup;
+    public GameObject OnPlayCanvas;
 
     private FirstPersonController fpsController;
    
@@ -49,7 +58,7 @@ public class Hero : MonoBehaviour
         currentHealth = 100;
         currentStamina = 100;
 
-        timer = 600; // 10 minutes in seconds
+        timer = 10; // 10 minutes in seconds (600)
 
         UpdateUI();
     }
@@ -68,14 +77,30 @@ public class Hero : MonoBehaviour
         {
             UseMedKit();
         }
-        
-        UpdateTimer();
+
+        CheckTimer();
         CheckInfoText();
+        
+        Debug.Log(EndingCanvasGroup.alpha);
+    }
+
+    private void CheckTimer()
+    {
+        if (timer <= 0)
+        {
+            GameOver(false, "..Time is Over..");
+        }
+        else
+        {
+            UpdateTimer();
+        }
     }
 
     public void GetDamage(int value)
     {
         currentHealth -= value;
+
+        healthBar.value = currentHealth;
     }
 
     private void UseMedKit()
@@ -88,6 +113,8 @@ public class Hero : MonoBehaviour
             {
                 currentHealth = maxHealth;
             }
+            
+            healthBar.value = currentHealth;
         }
         else
         {
@@ -213,7 +240,36 @@ public class Hero : MonoBehaviour
     {
         if (other.gameObject.tag.Equals("EnemyCharacter"))
         {
-            InformationText.text = "GAME OVER !";
+            GameOver(false, "..You Got Caught..");
+        }
+    }
+
+    public void GameOver(bool isEscaped, String message)
+    {
+        if (isEscaped)
+        {
+            EndingText.color = Color.white;
+            EndingText.text = "You Escaped !";
+        }
+        else
+        {
+            EndingText.color = Color.red;
+            EndingText.text = "Game Over";
+        }
+        
+        EndingInfoText.text = message;
+        OnPlayCanvas.SetActive(false);
+
+        if (EndingCanvasGroup.alpha < 1)
+        {
+            EndingCanvasGroup.alpha += Time.deltaTime;
+        }
+        else
+        {
+            // Freeze the Game
+            Time.timeScale = 0;
+            
+            // Load the ending scene
         }
     }
 }
