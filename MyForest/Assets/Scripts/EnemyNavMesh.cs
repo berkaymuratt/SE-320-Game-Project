@@ -41,6 +41,6 @@ public class EnemyNavMesh : MonoBehaviour
     
     public void IncreaseSpeed()
     {
-        enemySpeed+=0.25f;
+        enemySpeed+=0.5f;
     }
 }

@@ -693,7 +693,7 @@ PrefabInstance:
       objectReference: {fileID: 4552657104450467355}
     - target: {fileID: 19726569, guid: bceefb2a39f6db74d9bc9d006687b7f1, type: 3}
       propertyPath: m_bulletCount
-      value: 20
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3832703582346906254, guid: bceefb2a39f6db74d9bc9d006687b7f1, type: 3}
       propertyPath: m_Layer

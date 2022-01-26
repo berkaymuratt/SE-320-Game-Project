@@ -30,7 +30,7 @@ public class Enemy : MonoBehaviour
         explosion.Play();
         gameObject.SetActive(false);
 
-        respawnTime += 2;
+        respawnTime += 1;
 
         enemyAudioSource.clip = disappearAudio;
         enemyAudioSource.Play();
