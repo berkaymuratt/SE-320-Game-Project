@@ -45,7 +45,7 @@ public class Hero : MonoBehaviour
     public float infoTextTimer;
     private float counter;
     
-    private float timer;
+    public float timer;
     private bool isGameOver;
 
     private EndTypes EndType;
@@ -53,7 +53,7 @@ public class Hero : MonoBehaviour
     public Text EndingText;
     public Text EndingInfoText;
 
-    private float endingScreenTimer;
+    public float endingScreenTimer;
 
     public CanvasGroup EndingCanvasGroup;
     public GameObject OnPlayCanvas;
@@ -70,11 +70,8 @@ public class Hero : MonoBehaviour
         keyCount = 0;
         currentHealth = 100;
         currentStamina = 100;
-
-        timer = 20; // 10 minutes in seconds (600)
+        
         isGameOver = false;
-
-        endingScreenTimer = 5;
 
         UpdateUI();
     }
@@ -282,7 +279,7 @@ public class Hero : MonoBehaviour
                 GameOver(false, "..Time is Over..");
                 break;
             case EndTypes.ESCAPED:
-                GameOver(true,"You Escaped !");
+                GameOver(true,"");
                 break;
         }
     }

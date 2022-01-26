@@ -397,7 +397,14 @@ MonoBehaviour:
   AmmoCountText: {fileID: 0}
   KeyCountText: {fileID: 0}
   InformationText: {fileID: 0}
+  timeText: {fileID: 0}
   infoTextTimer: 5
+  timer: 600
+  EndingText: {fileID: 0}
+  EndingInfoText: {fileID: 0}
+  endingScreenTimer: 5
+  EndingCanvasGroup: {fileID: 0}
+  OnPlayCanvas: {fileID: 0}
 --- !u!1 &137642931452016147
 GameObject:
   m_ObjectHideFlags: 0
@@ -665,19 +672,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1034966213
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4552657104464392057}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6918f0c16bb2b6446a8249745e782b49, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  muzzleFlash: {fileID: 4552657104450467355}
 --- !u!1001 &294967389
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -905,3 +899,16 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4552657104172152612, guid: bceefb2a39f6db74d9bc9d006687b7f1, type: 3}
   m_PrefabInstance: {fileID: 294967389}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1034966213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4552657104464392057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6918f0c16bb2b6446a8249745e782b49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  muzzleFlash: {fileID: 4552657104450467355}
