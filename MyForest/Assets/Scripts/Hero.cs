@@ -80,8 +80,6 @@ public class Hero : MonoBehaviour
 
         CheckTimer();
         CheckInfoText();
-        
-        Debug.Log(EndingCanvasGroup.alpha);
     }
 
     private void CheckTimer()
@@ -268,8 +266,12 @@ public class Hero : MonoBehaviour
         {
             // Freeze the Game
             Time.timeScale = 0;
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.Confined;
             
             // Load the ending scene
+            int newSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+            SceneManager.LoadScene(newSceneIndex);
         }
     }
 }
