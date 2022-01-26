@@ -38,10 +38,10 @@ public class Hero : MonoBehaviour
     private float counter;
     
     private float timer;
-
+    
     public Text EndingText;
     public Text EndingInfoText;
-    
+
     public CanvasGroup EndingCanvasGroup;
     public GameObject OnPlayCanvas;
 
@@ -59,7 +59,7 @@ public class Hero : MonoBehaviour
         currentStamina = 100;
 
         timer = 10; // 10 minutes in seconds (600)
-
+        
         UpdateUI();
     }
 
@@ -272,6 +272,7 @@ public class Hero : MonoBehaviour
             // Load the ending scene
             int newSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
             SceneManager.LoadScene(newSceneIndex);
+          
         }
     }
 }
