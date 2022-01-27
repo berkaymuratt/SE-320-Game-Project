@@ -260,7 +260,14 @@ public class Hero : MonoBehaviour
         int minute = (int) timer / 60;
         int second = (int) timer % 60;
 
-        String time = "0" + minute + ":";
+        String time = "";
+
+        if (minute < 10)
+        {
+            time += "0";
+        }
+
+        time += minute + ":";
 
         if (second < 10)
         {
@@ -271,7 +278,7 @@ public class Hero : MonoBehaviour
 
         timeText.text = time;
 
-        if (timer <= 10)
+        if (timer <= 120)
         {
             timeText.color = Color.red;
         }
