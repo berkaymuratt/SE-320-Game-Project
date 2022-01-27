@@ -159,7 +159,7 @@ public class Hero : MonoBehaviour
         }
         else
         {
-            InformationText.text = "All keys have collected !";
+            InformationText.text = "All keys have been collected !";
         }
     }
 
