@@ -65,9 +65,7 @@ public class ChestPoints : MonoBehaviour
                 GameObject createdChest = Instantiate(chest, chestPoint.transform.position, quaternion);
                 createdChest.transform.SetParent(chestPoint);
                 createdChest.transform.rotation = quaternion; //Reset Rotation (Rotation was changed in SetParent)
-            
-                Debug.Log(chestPoint.transform.position.x + " " + chestPoint.transform.position.y + " " + chestPoint.transform.position.z);
-                
+
                 allChestPoints.Remove(chestPoint);
             }
         }
