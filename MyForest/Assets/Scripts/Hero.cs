@@ -152,7 +152,15 @@ public class Hero : MonoBehaviour
     public void GetKey()
     {
         keyCount++;
-        InformationText.text = (requiredKeysCount-keyCount) + " Key(s) Left ..";
+
+        if (requiredKeysCount - keyCount > 0)
+        {
+            InformationText.text = (requiredKeysCount-keyCount) + " Key(s) Left ..";
+        }
+        else
+        {
+            InformationText.text = "All keys have collected !";
+        }
     }
 
     public void UpdateUI()
