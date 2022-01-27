@@ -99,18 +99,7 @@ public class Hero : MonoBehaviour
             CheckEndTypes();
         }
     }
-
-    public void GetDamage(int value)
-    {
-        currentHealth -= value;
-        healthBar.value = currentHealth;
-
-        if (currentHealth <= 0)
-        {
-            setEndType(EndTypes.DIED);
-        }
-    }
-
+    
     private void UseMedKit()
     {
         if (medkitCount > 0)
@@ -139,6 +128,17 @@ public class Hero : MonoBehaviour
         }
     }
 
+    public void GetDamage(int value)
+    {
+        currentHealth -= value;
+        healthBar.value = currentHealth;
+
+        if (currentHealth <= 0)
+        {
+            setEndType(EndTypes.DIED);
+        }
+    }
+
     public void GetMedkit()
     {
         medkitCount++;
@@ -146,7 +146,7 @@ public class Hero : MonoBehaviour
 
     public void GetAmmo()
     {
-        gun.m_bulletCount += 5;
+        gun.m_bulletCount += 3;
     }
 
     public void GetKey()
